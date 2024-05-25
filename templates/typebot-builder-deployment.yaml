@@ -17,6 +17,14 @@ spec:
           image: {{ .Values.image.typebotBuilder }}
           ports:
             - containerPort: 3000
-          envFrom:
-            - configMapRef:
-                name: typebot-config
+          env:
+            - name: ENCRYPTION_SECRET
+              value: {{ .Values.env.ENCRYPTION_SECRET | quote }}
+            - name: DATABASE_URL
+              value: {{ .Values.env.DATABASE_URL | quote }}
+            - name: NEXTAUTH_URL
+              value: {{ .Values.env.NEXTAUTH_URL | quote }}
+            - name: NEXT_PUBLIC_VIEWER_URL
+              value: {{ .Values.env.NEXT_PUBLIC_VIEWER_URL | quote }}
+            - name: ADMIN_EMAIL
+              value: {{ .Values.env.ADMIN_EMAIL | quote }}
