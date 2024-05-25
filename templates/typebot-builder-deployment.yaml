@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: typebot-builder
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: typebot-builder
+  template:
+    metadata:
+      labels:
+        app: typebot-builder
+    spec:
+      containers:
+        - name: typebot-builder
+          image: {{ .Values.image.typebotBuilder }}
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: typebot-config

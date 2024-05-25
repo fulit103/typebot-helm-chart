@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: typebot-db
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: typebot-db
+  template:
+    metadata:
+      labels:
+        app: typebot-db
+    spec:
+      containers:
+        - name: postgres
+          image: {{ .Values.image.postgres }}
+          env:
+            - name: POSTGRES_DB
+              value: typebot
+            - name: POSTGRES_PASSWORD
+              value: typebot
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: db-data
+      volumes:
+        - name: db-data
+          persistentVolumeClaim:
+            claimName: typebot-db-pvc

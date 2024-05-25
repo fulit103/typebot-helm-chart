@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: typebot-builder
+spec:
+  type: {{ .Values.service.typebotBuilder.type }}
+  ports:
+    - port: {{ .Values.service.typebotBuilder.port }}
+      targetPort: {{ .Values.service.typebotBuilder.targetPort }}
+  selector:
+    app: typebot-builder
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: typebot-viewer
+spec:
+  type: {{ .Values.service.typebotViewer.type }}
+  ports:
+    - port: {{ .Values.service.typebotViewer.port }}
+      targetPort: {{ .Values.service.typebotViewer.targetPort }}
+  selector:
+    app: typebot-viewer
