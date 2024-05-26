@@ -28,3 +28,9 @@ spec:
               value: {{ .Values.env.NEXT_PUBLIC_VIEWER_URL | quote }}
             - name: ADMIN_EMAIL
               value: {{ .Values.env.ADMIN_EMAIL | quote }}
+            - name: GOOGLE_CLIENT_ID
+              value: {{ .Values.env.GOOGLE_CLIENT_ID | quote }}
+            - name: GOOGLE_CLIENT_SECRET
+              value: {{ .Values.env.GOOGLE_CLIENT_SECRET | quote }}
+            - name: NEXT_PUBLIC_GOOGLE_API_KEY
+              value: {{ .Values.env.NEXT_PUBLIC_GOOGLE_API_KEY | quote }}

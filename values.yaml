@@ -22,6 +22,9 @@ env:
   NEXTAUTH_URL: ""
   NEXT_PUBLIC_VIEWER_URL: ""
   ADMIN_EMAIL: ""
+  GOOGLE_CLIENT_ID: ""
+  GOOGLE_CLIENT_SECRET: ""
+  NEXT_PUBLIC_GOOGLE_API_KEY: ""
 
 persistence:
   enabled: true
