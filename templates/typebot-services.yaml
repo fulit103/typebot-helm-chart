@@ -23,3 +23,17 @@ spec:
       targetPort: {{ .Values.service.typebotViewer.targetPort }}
   selector:
     app: typebot-viewer
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: typebot-db
+spec:
+  selector:
+    app: typebot-db
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432
